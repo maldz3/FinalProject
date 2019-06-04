@@ -5,11 +5,16 @@
 //  Created by Maliha Syed on 5/28/19.
 //  Copyright © 2019 Maliha Syed. All rights reserved.
 //
+#include "Quest.hpp"
 
 #include <iostream>
 
-int main(int argc, const char * argv[]) {
-  // insert code here...
-  std::cout << "Hello, World!\n";
+int main() {
+ 
+  srand( (unsigned int) time(0) ); // seeding for random number generator
+  
+  Quest quest;
+  quest.play();
+  
   return 0;
 }
