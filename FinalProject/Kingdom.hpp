@@ -18,7 +18,7 @@ private:
   
   
 public:
-  Kingdom();
+  Kingdom(std::string);
   void intro() override;
   int events() override;
   ~Kingdom() override;

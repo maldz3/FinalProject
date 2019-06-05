@@ -11,8 +11,9 @@
 #include <iostream>
 
 
-Mountains::Mountains() {
-  
+Mountains::Mountains(std::string nameIn)
+{  
+  name = nameIn;
   type = "mountains";
   days = 1;
 }

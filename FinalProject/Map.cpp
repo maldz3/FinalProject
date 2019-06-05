@@ -13,17 +13,17 @@
 
 Map::Map() { 
   
-  shire = new Shire();
-  rohan = new Kingdom();
-  rivendell = new Kingdom();
-  gondor = new Kingdom();
-  mirkwood = new Forest();
-  lothlorien = new Forest();
-  fangorn = new Forest;
-  moria = new Mountains;
-  misty = new Mountains;
-  erebor = new Mountains;
-  mordor = new Mordor;
+  shire = new Shire("shire");
+  rohan = new Kingdom("rohan");
+  rivendell = new Kingdom("rivendell");
+  gondor = new Kingdom("gondor");
+  mirkwood = new Forest("mirkwood");
+  lothlorien = new Forest("lothlorien");
+  fangorn = new Forest("fangorn");
+  moria = new Mountains("moria");
+  misty = new Mountains("misty");
+  erebor = new Mountains("erebor");
+  mordor = new Mordor("mordor");
   currentLocation = shire;
   
   createMap();

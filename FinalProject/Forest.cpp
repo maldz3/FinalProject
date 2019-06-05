@@ -11,9 +11,9 @@
 #include <iostream>
 
 
-Forest::Forest()
+Forest::Forest(std::string nameIn)
 {
-
+  name = nameIn;
   type = "forest";
   days = 3;
 }

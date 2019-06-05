@@ -12,8 +12,10 @@
 #include <iostream>
 
 
-Mordor::Mordor() { 
-  type = "mordor";
+Mordor::Mordor(std::string nameIn)
+{
+  name = nameIn;
+  type = "mordor";  
 }
 
 void Mordor::intro() { 

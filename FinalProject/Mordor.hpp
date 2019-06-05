@@ -18,7 +18,7 @@ private:
   
   
 public:
-  Mordor();
+  Mordor(std::string);
   void intro() override;
   int events() override;
   void checkItems();

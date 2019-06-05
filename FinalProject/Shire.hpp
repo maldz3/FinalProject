@@ -18,7 +18,7 @@ private:
   
   
 public:
-  Shire();
+  Shire(std::string);
   void intro() override;
   int events() override;
   ~Shire() override;

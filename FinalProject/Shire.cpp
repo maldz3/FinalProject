@@ -11,10 +11,11 @@
 #include <iostream>
 
 
-Shire::Shire()
+Shire::Shire(std::string nameIn)
 {
+  name = nameIn;
   type = "shire";
-
+  days = 1;
 }
 
 

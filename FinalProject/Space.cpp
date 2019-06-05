@@ -9,8 +9,10 @@
 #include "Space.hpp"
 
 
-Space::Space() {
+Space::Space()
+{
   
+  name = "";
   type = "";
   days = 0;
   up = nullptr;
@@ -28,6 +30,10 @@ int Space::getDays() {
 
 std::string Space::getType() {
   return type;
+}
+
+std::string Space::getName() {
+  return name;
 }
 
 

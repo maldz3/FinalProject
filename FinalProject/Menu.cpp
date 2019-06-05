@@ -38,19 +38,19 @@ void Menu::showDirection(Space *location)
   std::cout << location->getUp()->getType() << std::endl;
   
   if (location->getUp()) {
-    std::cout <<  "[n]      "<< location->getUp()->getType() << std::endl;
+    std::cout <<  "[n]      "<< location->getUp()->getName() << std::endl;
   }
   
   if (location->getDown()) {
-    std::cout <<  "[s]      "<< location->getDown()->getType() << std::endl;
+    std::cout <<  "[s]      "<< location->getDown()->getName() << std::endl;
   }
   
   if (location->getRight()) {
-    std::cout <<  "[e]      "<< location->getRight()->getType() << std::endl;
+    std::cout <<  "[e]      "<< location->getRight()->getName() << std::endl;
   }
   
   if (location->getLeft()) {
-    std::cout <<  "[w]      "<< location->getLeft()->getType() << std::endl;
+    std::cout <<  "[w]      "<< location->getLeft()->getName() << std::endl;
   }
   
   std::cout << "-------------------------------------" << std::endl;

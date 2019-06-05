@@ -18,7 +18,7 @@ private:
   
   
 public:
-  Mountains();
+  Mountains(std::string);
   void intro() override;
   int events() override;
   ~Mountains() override;

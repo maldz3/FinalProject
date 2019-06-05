@@ -18,7 +18,7 @@ private:
 
   
 public:
-  Forest();
+  Forest(std::string);
   void intro() override;
   int events() override;
   ~Forest() override;

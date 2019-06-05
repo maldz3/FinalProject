@@ -11,17 +11,17 @@
 #include <iostream>
 
 
-Kingdom::Kingdom() {
-  
+Kingdom::Kingdom(std::string nameIn)
+{
+  name = nameIn;
   type = "kingdom";
-  days = 2;
-  
+  days = 2;  
 }
 
 void Kingdom::intro() { 
   
   std::cout << std::endl;
-  std::cout << "You have entered the a kingdom of men, where many weapons can be found." << std::endl;
+  std::cout << "You have entered a kingdom of Middle-Earth, where many weapons can be found." << std::endl;
   std::cout << "The magic scrolls are hidden here if you can get to them first..." << std::endl;
   std::cout << std::endl;
   

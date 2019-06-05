@@ -35,6 +35,7 @@ public:
   void setRight(Space *);
   virtual void intro() = 0;
   std::string getType();
+  std::string getName();
   int getDays();
   virtual int events() = 0;
   virtual ~Space();
