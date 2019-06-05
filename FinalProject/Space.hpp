@@ -21,6 +21,7 @@ protected:
   Space *right;
   int days;
   std::string type;
+  std::string name;
   
 public:
   Space();

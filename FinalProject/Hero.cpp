@@ -15,7 +15,7 @@ Hero::Hero(std::string nameIn) {
   
   setName(nameIn);
   energy = 10;
-  location->getType() = "shire";
+  location = map.getCurrentLocation();
   
 }
 
@@ -45,7 +45,9 @@ void Hero::fightOrc() {
   
   for (int i = 9; i >= 4; i--) {
     
-    if (backpack[i]->checkWeapon()) {
+    weapon = false;
+    
+    if (backpack[i]->checkWeapon() && weapon == false) {
       delete backpack[i];
       backpack[i] = nullptr;
       weapon = true;
@@ -113,6 +115,13 @@ bool Hero::isDead()
 }
 
 Hero::~Hero() { 
+  
+  for (int i = 0; i < 10; i++) {
+    if (backpack[i]) {
+      delete backpack[i];
+      backpack[i] = nullptr;
+    }
+  }
   
 }
 

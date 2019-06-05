@@ -11,7 +11,7 @@
 #include <iostream>
 
 
-Kingdom::Kingdom() { 
+Kingdom::Kingdom() {
   
   type = "kingdom";
   days = 2;

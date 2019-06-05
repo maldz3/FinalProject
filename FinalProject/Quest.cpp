@@ -25,8 +25,9 @@ Quest::Quest() {
 
 void Quest::intro()
 {
-  
+
   std::cout << "************************************************************************************" << std::endl;
+  std::cout << std::endl;
   std::cout << "Welcome to your quest hero " << hero->getName() << "!" << std::endl;
   std::cout << std::endl;
   std::cout << "Middle Earth is still in turmoil, the darkness and filth of Mordor is beginning" << std::endl;
@@ -85,31 +86,57 @@ void Quest::play()
   
   intro();
   
+  bool play = true;
   
-  currentLocation->intro();
-  menu.showEvents();
-  int choice = menu.chooseMenu();
-  
-  while (choice == 1) {
+  while (play) {
+    currentLocation->intro();
     
-    int event = currentLocation->events();
+    menu.showEvents();
+    int choice = menu.chooseMenu();
     
-    if (event == 1) {
+    while (choice != 2) {
+      
+      int event = currentLocation->events();
+      
+      if (event == 1) {
+        
+      }
+      
+      else if (event == 2) {
+        hero->eatFood();
+      }
+      
+      else if (event == 3) {
+        hero->fightOrc();
+      }
+      
+      else if (event == 4) {
+        hero->collectWeapon();
+      }
+      
+      menu.showEvents();
+      choice = menu.chooseMenu();
       
     }
     
-    else if (event == 2) {
-      hero->eatFood();
+    if (choice == 2) {
+      
+      menu.showDirection(currentLocation);
+      std::string dir = menu.chooseDirection();
+      
+      if (dir == "n") {
+        currentLocation = currentLocation->getUp();
+      }
+      else if (dir == "s") {
+        currentLocation = currentLocation->getDown();
+      }
+      else if (dir == "e") {
+        currentLocation = currentLocation->getRight();
+      }
+      else if (dir == "w") {
+        currentLocation = currentLocation->getLeft();
+      }
     }
-    
-    else if (event == 3) {
-      hero->fightOrc();
-    }
-    
-    else if (event == 4) {
-      hero->collectWeapon();
-    }
-    
   }
   
 }

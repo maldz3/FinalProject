@@ -11,6 +11,7 @@
 
 Space::Space() {
   
+  type = "";
   days = 0;
   up = nullptr;
   down = nullptr;

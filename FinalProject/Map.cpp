@@ -13,18 +13,20 @@
 
 Map::Map() { 
   
-  currentLocation = shire;
-  shire = new Shire;
-  rohan = new Kingdom;
-  rivendell = new Kingdom;
-  gondor = new Kingdom;
-  mirkwood = new Forest;
-  lothlorien = new Forest;
+  shire = new Shire();
+  rohan = new Kingdom();
+  rivendell = new Kingdom();
+  gondor = new Kingdom();
+  mirkwood = new Forest();
+  lothlorien = new Forest();
   fangorn = new Forest;
   moria = new Mountains;
   misty = new Mountains;
   erebor = new Mountains;
   mordor = new Mordor;
+  currentLocation = shire;
+  
+  createMap();
   
 }
 
@@ -94,6 +96,15 @@ void Map::displayMap()
   
 }
 
+Space *Map::getCurrentLocation() {
+  return currentLocation;
+}
+
+void Map::setCurrectLocation(Space *loc) {
+  currentLocation = loc;
+}
+
+
 
 Map::~Map() {
 
@@ -119,18 +130,10 @@ Map::~Map() {
   erebor = nullptr;
   delete mordor;
   mordor = nullptr;
-  delete currentLocation;
+  //delete currentLocation;
   currentLocation = nullptr;
   
   
-}
-
-Space *Map::getCurrentLocation() { 
-  return currentLocation;
-}
-
-void Map::setCurrectLocation(Space *loc) {
-  currentLocation = loc;
 }
 
 

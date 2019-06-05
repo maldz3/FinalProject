@@ -16,6 +16,7 @@
 #include "Kingdom.hpp"
 #include "Mountains.hpp"
 #include "Forest.hpp"
+#include "Map.hpp"
 
 #include <string>
 
@@ -27,6 +28,7 @@ private:
   int energy;
   Item *backpack [10] = {nullptr};
   Space *location;
+  Map map;
   
   
 public:

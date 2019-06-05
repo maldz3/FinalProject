@@ -11,7 +11,7 @@
 #include <iostream>
 
 
-Mountains::Mountains() { 
+Mountains::Mountains() {
   
   type = "mountains";
   days = 1;

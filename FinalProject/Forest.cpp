@@ -13,6 +13,7 @@
 
 Forest::Forest()
 {
+
   type = "forest";
   days = 3;
 }
