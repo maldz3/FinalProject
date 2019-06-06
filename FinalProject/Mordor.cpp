@@ -32,14 +32,6 @@ int Mordor::events() {
 }
 
 
-void Mordor::checkItems() { 
- 
-//  if () {
-//
-//  }
-  
-}
-
 Mordor::~Mordor() { 
   
 }

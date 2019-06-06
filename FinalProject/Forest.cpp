@@ -21,7 +21,7 @@ Forest::Forest(std::string nameIn)
 void Forest::intro() {
   
   std::cout << std::endl;
-  std::cout << "You are in the Forest, where there is food aplenty, be be wary." << std::endl;
+  std::cout << "You are in the Forest, where there is food aplenty, but be wary." << std::endl;
   std::cout << "The water of the Eldar can be found here if the fates wish it..." << std::endl;
   std::cout << std::endl;
   

@@ -42,9 +42,9 @@ public:
   void collectWeapon();
   void collectItem();
   void printItems();
-  void travel(Space *);
+  void setLocation(Space *);
+  bool checkSpecialItems();
   bool isDead();
-  //Item *getItems();
   ~Hero();
   
   

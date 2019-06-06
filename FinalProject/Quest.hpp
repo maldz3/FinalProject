@@ -24,12 +24,16 @@ private:
   int daysLeft;
   Map map;
   Menu menu;
+  bool gameOver;
   
 public:
   Quest();
   void intro();
   void play();
   void showMap();
+  void heroDead();
+  void outOfTime();
+  void checkVictory();
   ~Quest();
   
 };

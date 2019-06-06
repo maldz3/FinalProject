@@ -9,37 +9,35 @@
 #include "Item.hpp"
 
 
-Item::Item(std::string typeIn) {
+Item::Item(std::string typeIn)
+{
   type = typeIn;
 }
 
-bool Item::checkSpecialItems() {
-  
-  if (type == "special") {
-    return true;
-  }
-  return false;
-  
+
+std::string Item::getType()
+{
+  return type;
 }
 
-bool Item::checkFood() {
-  
-  if (type == "food") {
-    return true;
-  }
-  return false;
-  
-}
+//bool Item::checkSpecialItems() {
+//
+//  if (type == "special") {
+//    return true;
+//  }
+//  return false;
+//
+//}
+//
 
 bool Item::checkWeapon() {
-  
+
   if (type == "weapon") {
     return true;
   }
   return false;
-  
+
 }
 
-Item::~Item() { 
-  
-}
+Item::~Item()
+{}

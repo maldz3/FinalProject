@@ -19,8 +19,9 @@ private:
   
 public:
   Item(std::string);
-  bool checkSpecialItems();
-  bool checkFood();
+  std::string getType();
+  //bool checkSpecialItems();
+  //bool checkFood();
   bool checkWeapon();
   ~Item();
   

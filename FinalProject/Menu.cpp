@@ -35,8 +35,6 @@ void Menu::showDirection(Space *location)
   std::cout << "  WHICH DIRECTION WILL YOU TRAVEL?" << std::endl;
   std::cout << "-------------------------------------" << std::endl;
   
-  std::cout << location->getUp()->getType() << std::endl;
-  
   if (location->getUp()) {
     std::cout <<  "[n]      "<< location->getUp()->getName() << std::endl;
   }

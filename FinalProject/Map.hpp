@@ -40,7 +40,7 @@ public:
   Map();
   void displayMap();
   Space *getCurrentLocation();
-  void setCurrectLocation(Space *);
+  void setCurrentLocation(Space *);
   ~Map();
   
   

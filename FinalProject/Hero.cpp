@@ -45,9 +45,7 @@ void Hero::fightOrc() {
   
   for (int i = 9; i >= 4; i--) {
     
-    weapon = false;
-    
-    if (backpack[i]->checkWeapon() && weapon == false) {
+    if (backpack[i] && weapon == false) {
       delete backpack[i];
       backpack[i] = nullptr;
       weapon = true;
@@ -57,16 +55,20 @@ void Hero::fightOrc() {
   }
   
   if (!weapon) {
-    std::cout << "You are out of weapons and sustain injury, your energy has been depleted by 3" << std::endl;
+    std::cout << "You are out of weapons and sustain injury, your energy has been depleted by 3!" << std::endl;
     setEnergy(3);
   }
 }
 
 void Hero::collectWeapon() {
   
+  bool weapon = false;
+  
   for (int i = 4; i < 10; i++) {
-    if (backpack[i] == nullptr) {
+    
+    if (backpack[i] == nullptr && weapon == false) {
       backpack[i] = new Item("weapon");
+      weapon = true;
     }
   }
   
@@ -75,16 +77,16 @@ void Hero::collectWeapon() {
 void Hero::collectItem()
 {
   
-  if (location->getType() == "shire") {
+  if (location->getType() == "shire" && !backpack[0]) {
     backpack[0] = new Item("acorn");
   }
-  else if (location->getType() == "forest") {
+  if (location->getType() == "forest" && !backpack[1]) {
     backpack[1] = new Item("water");
   }
-  else if (location->getType() == "mountains") {
+  if (location->getType() == "mountains" && !backpack[2]) {
     backpack[2] = new Item("mithril");
   }
-  else {
+  if (location->getType() == "kingdom" && !backpack[3]) {
     backpack[3] = new Item("scroll");
   }
   
@@ -94,15 +96,16 @@ void Hero::printItems() {
   
   for (int i = 0; i < 10; i++) {
     if (backpack[i]) {
-      std::cout << backpack[i];
+      std::cout << backpack[i]->getType() << std::endl;
     }
   }
   
+  std::cout << std::endl;
 }
 
 
-void Hero::travel(Space *nextLocation) { 
-  
+void Hero::setLocation(Space *loc) {
+  location = loc;
 }
 
 
@@ -114,6 +117,19 @@ bool Hero::isDead()
   return false;
 }
 
+bool Hero::checkSpecialItems()
+{
+  for (int i = 0; i < 4; i++) {
+    
+    if (!backpack[i]) {
+      return false;
+    }
+  }
+    
+  return true;
+}
+
+
 Hero::~Hero() { 
   
   for (int i = 0; i < 10; i++) {
@@ -124,8 +140,3 @@ Hero::~Hero() {
   }
   
 }
-
-//Item *Hero::getItems() { 
-//  //return backpack;
-//}
-

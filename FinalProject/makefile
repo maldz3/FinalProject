@@ -25,7 +25,7 @@ Menu.o: Menu.cpp Menu.hpp InputValidation.hpp
 Space.o: Space.cpp Space.hpp
 	$(CXX) $(CXXFLAGS) -c Space.cpp
 
-Quest.o: Quest.cpp Quest.hpp
+Quest.o: Quest.cpp Quest.hpp Hero.hpp Map.hpp
 	$(CXX) $(CXXFLAGS) -c Quest.cpp
 
 Kingdom.o: Kingdom.cpp Kingdom.hpp
@@ -43,10 +43,10 @@ Shire.o: Shire.cpp Shire.hpp
 Mordor.o: Mordor.cpp Mordor.hpp
 	$(CXX) $(CXXFLAGS) -c Mordor.cpp
 
-Map.o: Map.cpp Map.hpp
+Map.o: Map.cpp Map.hpp Space.hpp
 	$(CXX) $(CXXFLAGS) -c Map.cpp
 
-Hero.o: Hero.cpp Hero.hpp
+Hero.o: Hero.cpp Hero.hpp Item.hpp
 	$(CXX) $(CXXFLAGS) -c Hero.cpp
 
 Item.o: Item.cpp Item.hpp

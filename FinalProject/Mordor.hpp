@@ -21,7 +21,6 @@ public:
   Mordor(std::string);
   void intro() override;
   int events() override;
-  void checkItems();
   ~Mordor() override;
   
 };
