@@ -1,16 +1,18 @@
-//
-//  Hero.cpp
-//  FinalProject
-//
-//  Created by Maliha Syed on 5/28/19.
-//  Copyright © 2019 Maliha Syed. All rights reserved.
-//
+/******************************************************************************************
+ ** Program name: Final Project - Quest for Middle-Earth
+ ** Author: Maliha Syed
+ ** Date: 5/25/2019
+ ** Description: This is the implementation file for Hero class that has variables energy,
+ ** name, location, map, and backpack array of Items.  The hero interacts with each location.
+ ******************************************************************************************/
 
 #include "Hero.hpp"
 
 #include <iostream>
 
 
+// Constructor that assigns a user-inputted name, sets the energy to 10,
+// and initializes the location
 Hero::Hero(std::string nameIn) {
   
   setName(nameIn);
@@ -19,36 +21,44 @@ Hero::Hero(std::string nameIn) {
   
 }
 
+// getter that returns the name
 std::string Hero::getName() { 
   return name;
 }
 
+// setter that sets the name
 void Hero::setName(std::string nameIn) {
   name = nameIn;
 }
 
+// getter that returns the energy
 int Hero::getEnergy() { 
   return energy;
 }
 
+// setter that decrements by one and sets the new energy
 void Hero::setEnergy(int num) {
   energy -= num;
 }
 
+// eatFood function that incremets the energy by one
 void Hero::eatFood() { 
   energy++;
 }
 
+// fightOrc function that iterates through the backpack for a weapon and deletes (uses)
+// it, energy is decremented by 3 if there is no weapon
 void Hero::fightOrc() { 
   
   bool weapon = false;
   
-  for (int i = 9; i >= 4; i--) {
+  for (int i = 9; i >= 4; i--) { // check array from the 10th to the 4th position
     
     if (backpack[i] && weapon == false) {
       delete backpack[i];
       backpack[i] = nullptr;
-      weapon = true;
+      weapon = true; // allows only one weapon to be used
+      
       std::cout << "You have vanquished the enemy!" << std::endl;
     }
     
@@ -60,6 +70,7 @@ void Hero::fightOrc() {
   }
 }
 
+// collectWeapon function adds a weapon to the array if there is space (null)
 void Hero::collectWeapon() {
   
   bool weapon = false;
@@ -74,6 +85,8 @@ void Hero::collectWeapon() {
   
 }
 
+// collectItem function that adds the specual item to the array based on the type
+// of the location
 void Hero::collectItem()
 {
   
@@ -92,6 +105,7 @@ void Hero::collectItem()
   
 }
 
+// printItems function that outputs the items in the backpack
 void Hero::printItems() { 
   
   for (int i = 0; i < 10; i++) {
@@ -103,12 +117,12 @@ void Hero::printItems() {
   std::cout << std::endl;
 }
 
-
+// setter that sets the current location of the hero
 void Hero::setLocation(Space *loc) {
   location = loc;
 }
 
-
+// isDead function that returns true if the energy is <= 0
 bool Hero::isDead()
 {
   if (energy <= 0) {
@@ -117,6 +131,7 @@ bool Hero::isDead()
   return false;
 }
 
+// checkSpecialItems function that checks if the first 4 positions in the array are filled
 bool Hero::checkSpecialItems()
 {
   for (int i = 0; i < 4; i++) {
@@ -129,7 +144,7 @@ bool Hero::checkSpecialItems()
   return true;
 }
 
-
+// Destructor that iterates throught the array and deletes any pointer to an Item
 Hero::~Hero() { 
   
   for (int i = 0; i < 10; i++) {

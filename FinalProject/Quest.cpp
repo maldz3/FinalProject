@@ -1,29 +1,36 @@
-//
-//  Quest.cpp
-//  FinalProject
-//
-//  Created by Maliha Syed on 5/30/19.
-//  Copyright © 2019 Maliha Syed. All rights reserved.
-//
+/********************************************************************************************
+ ** Program name: Final Project - Quest for Middle-Earth
+ ** Author: Maliha Syed
+ ** Date: 5/25/2019
+ ** Description: This is the implementation file for the Quest class where the simulation of
+ ** the gane is programmed.  It has member variables daysLeft, currentLocation, gameOver bool,
+ ** menu, and hero.  Methods provide an intro and gameplay that deals with the events in
+ ** each location and allow the user to travel btween locations.
+ ********************************************************************************************/
+
 
 #include "Quest.hpp"
 
 #include <iostream>
 
 
+// Constructor that initilaizes a user inputted name for a hero, sets daysLeft to 20,
+// gameOver to false, and currentLocation to shire
 Quest::Quest() {
   
-  gameOver = false;
   std::string nameIn;
   std::cout << "What is your name hero?  ";
-  std::cin >> nameIn;
+  std::getline(std::cin, nameIn);
   std::cout << std::endl;
+  
   hero = new Hero(nameIn);
   daysLeft = 20;
+  gameOver = false;
   currentLocation = map.getCurrentLocation();
   
 }
 
+// intro function that provides the background to the game, and displays a map
 void Quest::intro()
 {
 
@@ -49,7 +56,7 @@ void Quest::intro()
   std::cout << "the darkness will be beyond repair, and the world as we know will cease to exist." << std::endl;
   std::cout << std::endl;
   
-  showMap();
+  showMap(); // displays a map of the game locations
   
   std::cout << std::endl;
   std::cout << "-Kingdoms-" << std::endl;
@@ -71,17 +78,15 @@ void Quest::intro()
   std::cout << std::endl;
   std::cout << "************************************************************************************" << std::endl;
   
-  
-  
-  
 }
 
+// showMap that calls the Map's displayMap function to print the map
 void Quest::showMap()
 {
   map.displayMap();
 }
 
-
+// play function that deals with the events and allows the player to travel until the game is over
 void Quest::play()
 {
   
@@ -94,10 +99,12 @@ void Quest::play()
     std::cout << std::endl;
     
     currentLocation->intro();
-    daysLeft -= currentLocation->getDays();
+    daysLeft -= currentLocation->getDays(); // subtracts days per the location
+    outOfTime(); // checks if days have run out
     
     int choice = 0;
     
+    // checks if all items are present when player enters Mordor
     if (currentLocation->getType() == "mordor") {
       checkVictory();
     }
@@ -108,40 +115,42 @@ void Quest::play()
       choice = menu.chooseMenu();
     }
     
-    while (choice != 2 && gameOver == false) {
+    while (choice == 1 && gameOver == false) { // randoms events per the location
       
       int event = currentLocation->events();
       
-      if (event == 1) {
+      if (event == 1) { // special item found and added to array if not there
         hero->collectItem();
       }
       
-      else if (event == 2) {
+      else if (event == 2) { // food found and energy increments by one
         hero->eatFood();
       }
       
-      else if (event == 3) {
+      else if (event == 3) { // enemy encountered, if weapon use, or energy decrements by 3
         hero->fightOrc();
-        heroDead();
+        heroDead(); // checks if energy is <= 0
       }
       
-      else if (event == 4) {
+      else if (event == 4) { // weapon found and added to empty spot in array (backpack)
         hero->collectWeapon();
       }
       
-      else {
+      else { // waste of time event that decrements days
         daysLeft -= 1;
+        outOfTime(); // checks if days have run out
       }
       
-      if (!gameOver) {
+      if (!gameOver) { // gives player menu choices if game is not over
         menu.showEvents();
         choice = menu.chooseMenu();
       }
       
     }
     
-    if (choice == 2) {
+    if (choice == 2) { // travel to another location
       
+      // user output of map, backpack items, energy, abd days left
       std::cout << std::endl;
       showMap();
       std::cout << std::endl;
@@ -152,11 +161,12 @@ void Quest::play()
       std::cout << "You have " << daysLeft << " days left" << std::endl;
       std::cout << std::endl;
       
-      menu.showDirection(currentLocation);
+      menu.showDirection(currentLocation); // shows direction choices for travel
       std::string dir = menu.chooseDirection();
       
       bool direction = false;
       
+      // if pointer doesn't point to null, then player can choose that direction
       while (!direction) {
         
         if (dir == "n") {
@@ -205,6 +215,7 @@ void Quest::play()
         }
       }
       
+      // updates the current location
       map.setCurrentLocation(currentLocation);
       hero->setLocation(currentLocation);
       
@@ -213,6 +224,7 @@ void Quest::play()
   
 }
 
+// heroDead function that checks if energy is <= 0 and ends game if it is
 void Quest::heroDead()
 {
   if (hero->isDead()) {
@@ -223,17 +235,18 @@ void Quest::heroDead()
   }
 }
 
-
+// outOfTime function that checks if daysLeft is <= 0 and ends game if it is
 void Quest::outOfTime()
 {
   if (daysLeft <= 0) {
     gameOver = true;
     std::cout << std::endl;
-    std::cout << "Hero you have run out of time, only a miracle now can save Middle_Earth..." << std::endl;
+    std::cout << "Hero you have run out of time, only a miracle can now save Middle_Earth..." << std::endl;
     std::cout << std::endl;
   }
 }
 
+// checkVictory function that checks the array for all 4 special items
 void Quest::checkVictory()
 {
   if (hero->checkSpecialItems()) {
@@ -247,11 +260,10 @@ void Quest::checkVictory()
   }
 }
 
-
+// Destructor function that deletes the hero pointer and sets it to null
 Quest::~Quest() {
 
   delete hero;
   hero = nullptr;
-  
   
 }

@@ -1,10 +1,10 @@
-//
-//  Item.cpp
-//  FinalProject
-//
-//  Created by Maliha Syed on 5/28/19.
-//  Copyright © 2019 Maliha Syed. All rights reserved.
-//
+/******************************************************************************************
+ ** Program name: Final Project - Quest for Middle-Earth
+ ** Author: Maliha Syed
+ ** Date: 5/25/2019
+ ** Description: This is the implementation file for Item class that has a string variable
+ ** type, a constructor that takes in a string type, a getter, and a destructor.
+ ******************************************************************************************/
 
 #include "Item.hpp"
 
@@ -20,24 +20,6 @@ std::string Item::getType()
   return type;
 }
 
-//bool Item::checkSpecialItems() {
-//
-//  if (type == "special") {
-//    return true;
-//  }
-//  return false;
-//
-//}
-//
-
-bool Item::checkWeapon() {
-
-  if (type == "weapon") {
-    return true;
-  }
-  return false;
-
-}
 
 Item::~Item()
 {}

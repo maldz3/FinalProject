@@ -1,7 +1,7 @@
-# Program name: Lab 9 - Stack and Queue STL Containers
+# Program name: Final Project - Quest to Save Middle-Earth
 # Author: Maliha Syed
 # Date: 5/25/2019
-# Description: Makefile for Lab 9
+# Description: Makefile for Final Project
 
 CXX = g++
 CXXFLAGS = -std=c++11

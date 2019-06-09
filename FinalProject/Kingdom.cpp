@@ -1,16 +1,18 @@
-//
-//  Kingdom.cpp
-//  FinalProject
-//
-//  Created by Maliha Syed on 5/28/19.
-//  Copyright © 2019 Maliha Syed. All rights reserved.
-//
+/********************************************************************************************
+ ** Program name: Final Project - Quest for Middle-Earth
+ ** Author: Maliha Syed
+ ** Date: 5/25/2019
+ ** Description: This is the implementation file for the Kingdom class that inherits from Space.
+ ** Methods are a constructor that takes in a name string, an intro function, and events
+ ********************************************************************************************/
+
 
 #include "Kingdom.hpp"
 
 #include <iostream>
 
 
+// Constructor that assigns the type, days, and an inputted name
 Kingdom::Kingdom(std::string nameIn)
 {
   name = nameIn;
@@ -18,6 +20,7 @@ Kingdom::Kingdom(std::string nameIn)
   days = 2;  
 }
 
+// intro function that outputs an introduction for the location
 void Kingdom::intro() { 
   
   std::cout << std::endl;
@@ -27,6 +30,7 @@ void Kingdom::intro() {
   
 }
 
+// events function that outputs random events at different percentages and returns an integer
 int Kingdom::events() {
   
   int num = rand() % 100 + 1;
@@ -47,12 +51,13 @@ int Kingdom::events() {
   }
   
   else {
-    std::cout << "You attend a royal banquet thrown in your honor!" << std::endl;
+    std::cout << "You take out a day to attend a royal banquet thrown in your honor!" << std::endl;
     return 0;
   }
   
 }
 
+// Default destructor function 
 Kingdom::~Kingdom() { 
 
 }

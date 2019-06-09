@@ -1,16 +1,18 @@
-//
-//  Shire.cpp
-//  FinalProject
-//
-//  Created by Maliha Syed on 5/30/19.
-//  Copyright © 2019 Maliha Syed. All rights reserved.
-//
+/********************************************************************************************
+ ** Program name: Final Project - Quest for Middle-Earth
+ ** Author: Maliha Syed
+ ** Date: 5/25/2019
+ ** Description: This is the implementation file for the Shire class that inherits from Space.
+ ** Methods are a constructor that takes in a name string, an intro function, and events
+ ********************************************************************************************/
+
 
 #include "Shire.hpp"
 
 #include <iostream>
 
 
+// Constructor that assigns the type, days, and an inputted name
 Shire::Shire(std::string nameIn)
 {
   name = nameIn;
@@ -18,7 +20,7 @@ Shire::Shire(std::string nameIn)
   days = 1;
 }
 
-
+// intro function that outputs an introduction for the location
 void Shire::intro() {
   
   std::cout << std::endl;
@@ -28,6 +30,7 @@ void Shire::intro() {
   
 }
 
+// events function that outputs random events at different percentages and returns an integer
 int Shire::events() {
   
   int num = rand() % 10 + 1;
@@ -38,17 +41,18 @@ int Shire::events() {
   }
   
   if (num <= 8) {
-    std::cout << "You were invited to a hobbit party and got some energy!" << std::endl;
+    std::cout << "You were invited to a hobbit house and got some energy!" << std::endl;
     return 2;
   }
   
   else {
-    std::cout << "You went to the inn, sang and made merry!" << std::endl;
+    std::cout << "You went to the inn, sang and made merry - that took a whole day!" << std::endl;
     return 0;
   }
   
 }
 
+// Default destructor function 
 Shire::~Shire()
 {
 

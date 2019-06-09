@@ -1,5 +1,5 @@
 /******************************************************************************************
- ** Program name: Lab 9 -
+ ** Program name: Final Project - Quest for Middle-Earth
  ** Author: Maliha Syed
  ** Date: 5/25/2019
  ** Description: This is the implementation file for input validation functions that can
@@ -29,7 +29,7 @@ void inputValidation (int &integer, int min, int max) {
          || (input[0] == '-' && input.length() == 1) || (input[0] == '0' && input.length() > 1)
          || input.length() == 0 || input.length() > 6 || (stoi(input) < MIN || stoi(input) > MAX))
   {
-    std::cout << "Invalid input, please enter a number between " << MIN << " and " << MAX << std::endl;
+    std::cout << "Invalid input, please enter " << MIN << " or " << MAX << std::endl;
   }
   
   integer = stoi(input);

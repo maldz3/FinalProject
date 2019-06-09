@@ -1,5 +1,5 @@
 /******************************************************************************************
- ** Program name: Final Project = Quest for Middle-Earth
+ ** Program name: Final Project - Quest for Middle-Earth
  ** Author: Maliha Syed
  ** Date: 5/25/2019
  ** Description: This is the class implementation file for the Menu class that prints three
@@ -73,9 +73,8 @@ void Menu::showEvents()
 // chooseMenu function that returns the user's choice after validation
 int Menu::chooseMenu()
 {
-  int choice = 0;
+  int choice = 1;
   
-  std::cout << std::endl;
   std::cout << "Enter your choice: ";
   inputValidation(choice, 1, 2);
   std::cout << std::endl;
@@ -83,6 +82,7 @@ int Menu::chooseMenu()
   return choice;
 }
 
+// chooseDirection function that validates the user's choice of direction
 std::string Menu::chooseDirection() {
   
   std::string dir;

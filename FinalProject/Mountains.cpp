@@ -1,16 +1,18 @@
-//
-//  Mountains.cpp
-//  FinalProject
-//
-//  Created by Maliha Syed on 5/28/19.
-//  Copyright © 2019 Maliha Syed. All rights reserved.
-//
+/***********************************************************************************************
+ ** Program name: Final Project - Quest for Middle-Earth
+ ** Author: Maliha Syed
+ ** Date: 5/25/2019
+ ** Description: This is the implementation file for the Mountains class that inherits from Space.
+ ** Methods are a constructor that takes in a name string, an intro function, and events
+ ***********************************************************************************************/
+
 
 #include "Mountains.hpp"
 
 #include <iostream>
 
 
+// Constructor that assigns the type, days, and an inputted name
 Mountains::Mountains(std::string nameIn)
 {  
   name = nameIn;
@@ -18,6 +20,7 @@ Mountains::Mountains(std::string nameIn)
   days = 1;
 }
 
+// intro function that outputs an introduction for the location
 void Mountains::intro() { 
  
   std::cout << std::endl;
@@ -27,6 +30,7 @@ void Mountains::intro() {
   
 }
 
+// events function that outputs random events at different percentages and returns an integer
 int Mountains::events() {
   
   int num = rand() % 100 + 1;
@@ -37,7 +41,7 @@ int Mountains::events() {
   }
   
   if (num <= 40) {
-    std::cout << "You find a weapon forged by the dwarves!" << std::endl;
+    std::cout << "You find a weapon forged by the dwarves" << std::endl;
     return 4;
   }
   
@@ -47,12 +51,13 @@ int Mountains::events() {
   }
   
   else {
-    std::cout << "You are lost in the dark caves, keep searching" << std::endl;
+    std::cout << "You are lost in the dark caves for a day, keep searching" << std::endl;
     return 0;
   }
   
 }
 
+// Default destructor function 
 Mountains::~Mountains() {
  
 }

@@ -1,10 +1,12 @@
-//
-//  main.cpp
-//  FinalProject
-//
-//  Created by Maliha Syed on 5/28/19.
-//  Copyright © 2019 Maliha Syed. All rights reserved.
-//
+/********************************************************************************************
+ ** Program name: Final Project - Quest for Middle-Earth
+ ** Author: Maliha Syed
+ ** Date: 5/25/2019
+ ** Description: This is the main file for the Final Project that initializes a Quest object
+ ** and calls the play method to run the game.
+ ********************************************************************************************/
+
+
 #include "Quest.hpp"
 
 #include <iostream>

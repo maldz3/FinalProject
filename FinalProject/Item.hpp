@@ -1,10 +1,10 @@
-//
-//  Item.hpp
-//  FinalProject
-//
-//  Created by Maliha Syed on 5/28/19.
-//  Copyright © 2019 Maliha Syed. All rights reserved.
-//
+/******************************************************************************************
+ ** Program name: Final Project - Quest for Middle-Earth
+ ** Author: Maliha Syed
+ ** Date: 5/25/2019
+ ** Description: This is the specification file for Item class that has a string variable
+ ** type, a constructor that takes in a string type, a getter, and a destructor.
+ ******************************************************************************************/
 
 #ifndef Item_hpp
 #define Item_hpp
@@ -20,9 +20,6 @@ private:
 public:
   Item(std::string);
   std::string getType();
-  //bool checkSpecialItems();
-  //bool checkFood();
-  bool checkWeapon();
   ~Item();
   
 };

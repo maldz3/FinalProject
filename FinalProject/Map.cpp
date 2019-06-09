@@ -1,16 +1,18 @@
-//
-//  Map.cpp
-//  FinalProject
-//
-//  Created by Maliha Syed on 5/30/19.
-//  Copyright © 2019 Maliha Syed. All rights reserved.
-//
+/******************************************************************************************
+ ** Program name: Final Project - Quest for Middle-Earth
+ ** Author: Maliha Syed
+ ** Date: 5/25/2019
+ ** Description: This is the implementation file for Map class that initializes pointers to
+ ** all 9 Space locations and current location, connects the spaces through their internal
+ ** pointers, and displays a visual map of the spaces.
+ ******************************************************************************************/
 
 #include "Map.hpp"
 
 #include <iostream>
 
 
+// Constructor that initializes pointers to the 9 Space locations and the current location
 Map::Map() { 
   
   shire = new Shire("Shire");
@@ -65,7 +67,7 @@ void Map::createMap() {
   
   fangorn->setDown(erebor);
   fangorn->setLeft(rohan);
-  fangorn->setDown(mordor);
+  fangorn->setRight(mordor);
   
   erebor->setUp(fangorn);
   erebor->setDown(gondor);
@@ -82,7 +84,7 @@ void Map::createMap() {
   
 }
 
-
+// displayMap function that outputs a visual map for the user
 void Map::displayMap()
 {
   
@@ -96,16 +98,17 @@ void Map::displayMap()
   
 }
 
+// getter that returns the current location of the hero
 Space *Map::getCurrentLocation() {
   return currentLocation;
 }
 
+// setter that sets the hero's current location
 void Map::setCurrentLocation(Space *loc) {
   currentLocation = loc;
 }
 
-
-
+// Destructor that deletes the pointers and assigns them to null
 Map::~Map() {
 
   delete shire;
@@ -130,7 +133,6 @@ Map::~Map() {
   erebor = nullptr;
   delete mordor;
   mordor = nullptr;
-  //delete currentLocation;
   currentLocation = nullptr;
   
   

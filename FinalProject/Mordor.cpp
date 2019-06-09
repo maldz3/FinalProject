@@ -1,10 +1,11 @@
-//
-//  Mordor.cpp
-//  FinalProject
-//
-//  Created by Maliha Syed on 5/30/19.
-//  Copyright © 2019 Maliha Syed. All rights reserved.
-//
+/********************************************************************************************
+ ** Program name: Final Project - Quest for Middle-Earth
+ ** Author: Maliha Syed
+ ** Date: 5/25/2019
+ ** Description: This is the implementation file for the Mordor class that inherits from Space.
+ ** Methods are a constructor that takes in a name string, an intro function, and events
+ ********************************************************************************************/
+
 
 #include "Mordor.hpp"
 #include "Hero.hpp"
@@ -12,12 +13,14 @@
 #include <iostream>
 
 
+// Constructor that assigns the type and an inputted name
 Mordor::Mordor(std::string nameIn)
 {
   name = nameIn;
   type = "mordor";  
 }
 
+// intro function that outputs an introduction for the location
 void Mordor::intro() { 
   
   std::cout << std::endl;
@@ -27,11 +30,13 @@ void Mordor::intro() {
   
 }
 
+// events function that returns an integer
 int Mordor::events() {
+  std::cout << "No, go back and return with the missing items before it is too late!." << std::endl;
   return 0;
 }
 
-
+// Default destructor function 
 Mordor::~Mordor() { 
   
 }

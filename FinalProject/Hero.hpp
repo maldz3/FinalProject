@@ -1,10 +1,11 @@
-//
-//  Hero.hpp
-//  FinalProject
-//
-//  Created by Maliha Syed on 5/28/19.
-//  Copyright © 2019 Maliha Syed. All rights reserved.
-//
+/******************************************************************************************
+ ** Program name: Final Project - Quest for Middle-Earth
+ ** Author: Maliha Syed
+ ** Date: 5/25/2019
+ ** Description: This is the specification file for Hero class that has variables energy,
+ ** name, location, map, and backpack array of Items.  The hero interacts with each location.
+ ******************************************************************************************/
+
 
 #ifndef Hero_hpp
 #define Hero_hpp

@@ -1,8 +1,8 @@
 /******************************************************************************************
- ** Program name: Lab 9
+ ** Program name: Final Project - Quest for Middle-Earth
  ** Author: Maliha Syed
  ** Date: 5/25/2019
- ** Description: This is the implementation file for input validation functions that can
+ ** Description: This is the specification file for input validation functions that can
  ** be used to validate an integer, string character, string name, decimal, or file name.
  ******************************************************************************************/
 

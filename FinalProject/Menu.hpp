@@ -1,5 +1,5 @@
 /******************************************************************************************
- ** Program name: Final Project = Quest for Middle-Earth
+ ** Program name: Final Project - Quest for Middle-Earth
  ** Author: Maliha Syed
  ** Date: 5/25/2019
  ** Description: This is the class specification file for the Menu class that prints three
